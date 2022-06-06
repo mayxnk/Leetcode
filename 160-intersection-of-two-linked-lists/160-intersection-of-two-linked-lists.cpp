@@ -21,6 +21,8 @@ public:
     }
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) 
     {
+        //Brute Force Approach
+        /*
         if(headA==NULL || headB==NULL)
             return NULL;
         
@@ -59,5 +61,14 @@ public:
             }
         }
         return NULL;
+        */
+        //Optimal Approach
+        ListNode* a = headA,*b = headB;
+        while(a != b)
+        {
+            a = !a ? headB : a->next;
+            b = !b ? headA : b->next;
+        }
+        return a;
     }
 };
