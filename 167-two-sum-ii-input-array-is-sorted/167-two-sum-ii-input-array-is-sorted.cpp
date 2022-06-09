@@ -19,18 +19,34 @@ public:
         // return ans;
         
         //Brute Force 
-        unordered_map<int,int> map;
-        for(int i = 0;i<nums.size();i++)
-            map[nums[i]] = i;
+//         unordered_map<int,int> map;
+//         for(int i = 0;i<nums.size();i++)
+//             map[nums[i]] = i;
         
-        for(int i = 0;i<nums.size();i++)
+//         for(int i = 0;i<nums.size();i++)
+//         {
+//             if(map.find(target - nums[i]) != map.end() && map[target - nums[i]] > i)
+//             {
+//                 ans[0] = i+1;
+//                 ans[1] = map[target - nums[i]] + 1;
+//                 break;
+//             }
+//         }
+//         return ans;
+        
+        //Optimal Approach - Two Pointers
+        int low = 0,high = nums.size() - 1;
+        while(low < high)
         {
-            if(map.find(target - nums[i]) != map.end() && map[target - nums[i]] > i)
+            if(nums[low] + nums[high] == target)
             {
-                ans[0] = i+1;
-                ans[1] = map[target - nums[i]] + 1;
+                ans = {low + 1,high + 1};
                 break;
             }
+            else if(nums[low] + nums[high] < target)
+                ++low;
+            else
+                --high;
         }
         return ans;
     }
