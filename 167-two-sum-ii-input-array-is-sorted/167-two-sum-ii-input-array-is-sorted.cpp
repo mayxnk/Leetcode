@@ -35,19 +35,33 @@ public:
 //         return ans;
         
         //Optimal Approach - Two Pointers
+        // int low = 0,high = nums.size() - 1;
+        // while(low < high)
+        // {
+        //     if(nums[low] + nums[high] == target)
+        //     {
+        //         ans = {low + 1,high + 1};
+        //         break;
+        //     }
+        //     else if(nums[low] + nums[high] < target)
+        //         ++low;
+        //     else
+        //         --high;
+        // }
+        // return ans;
+        
+        //Binary Search Approach - Time:O(logn) , Space - O(1)
         int low = 0,high = nums.size() - 1;
         while(low < high)
         {
             if(nums[low] + nums[high] == target)
-            {
-                ans = {low + 1,high + 1};
                 break;
-            }
             else if(nums[low] + nums[high] < target)
-                ++low;
+                low++;
             else
-                --high;
+                high--;
         }
+        ans = {low + 1,high + 1};
         return ans;
     }
 };
