@@ -4,7 +4,7 @@ public:
     {
         if(s.size()==0 || s.size()==1)
             return s.size();
-        
+        //Brute Force Approach
         unordered_set<char> unique;
         int len,maxm = 0;
         for(int i = 0;i<s.size();i++)
