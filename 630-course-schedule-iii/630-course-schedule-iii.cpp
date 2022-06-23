@@ -6,6 +6,7 @@ public:
     }
     int scheduleCourse(vector<vector<int>>& courses) 
     {
+        //Time Complexity : O(n*logn),Space : O(n)
         //sorting on basis of last day
         sort(courses.begin(),courses.end(),cmp);
         int time = 0;
