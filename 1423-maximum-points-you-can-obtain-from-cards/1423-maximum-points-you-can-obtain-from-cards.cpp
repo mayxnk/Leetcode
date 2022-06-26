@@ -37,13 +37,13 @@ public:
         // }
         int windSum = 0;
         for(int i = n-k;i<n;i++)
-            windSum += cardPoints[i];
+            windSum += cardPoints[i]; //sum of current window from last
         
         int ans = windSum,j = 0,i = n-k;
         while(j<k && i<n)
         {
-            windSum += cardPoints[j++];
-            windSum -= cardPoints[i++];
+            windSum += cardPoints[j++]; //adding element from start
+            windSum -= cardPoints[i++]; //subtracting element from last
             ans = max(ans,windSum);
         }
         return ans;
