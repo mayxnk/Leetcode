@@ -2,6 +2,7 @@ class Solution {
 public:
     int maxArea(int h, int w, vector<int>& hC, vector<int>& vC) 
     {
+        //Time - O(nlogn + 2*n),Space - O(1)
         int mod = 1e9 + 7;
         vC.push_back(w);
         hC.push_back(h);
