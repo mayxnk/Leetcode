@@ -26,28 +26,49 @@ public:
             return {};
         vector<int> ans;
         //BFS Approach
-       /*
+       
         queue<TreeNode*> q;
         q.push(root);
+        q.push(NULL);
         while(q.size()!=0)
         {
-            int currSize = q.size();
-            TreeNode* currNode;
-            while(currSize--)
+            // int currSize = q.size();
+            // TreeNode* currNode;
+            // while(currSize--)
+            // {
+            //     currNode = q.front();
+            //     q.pop();
+            //     if(currNode->left != NULL)
+            //         q.push(currNode->left);
+            //     if(currNode->right != NULL)
+            //         q.push(currNode->right);
+            // }
+            // ans.push_back(currNode->val);
+            TreeNode *curr;
+            if(q.front() != NULL)
             {
-                currNode = q.front();
+                curr = q.front();
+                if(curr->left)
+                    q.push(curr->left);
+                if(curr->right)
+                    q.push(curr->right);
                 q.pop();
-                if(currNode->left != NULL)
-                    q.push(currNode->left);
-                if(currNode->right != NULL)
-                    q.push(currNode->right);
             }
-            ans.push_back(currNode->val);
+            else
+            {
+                ans.push_back(curr->val);
+                q.pop();
+                if(q.size())
+                    q.push(NULL);
+            }
         }
         return ans;
-        */
-        helper(root,ans,0);
+        
+        //DFS Approach
+       /* helper(root,ans,0);
         return ans;
+      */
+        
         
     }
 };
