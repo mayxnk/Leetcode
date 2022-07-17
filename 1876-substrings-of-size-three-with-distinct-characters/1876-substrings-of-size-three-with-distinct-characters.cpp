@@ -11,18 +11,23 @@ public:
                 ++j;
             else if(j-i+1 == 3)
             {
-                int count = 0;
-                for(auto x:mp)
-                {
-                    if(x.second == 1)
-                    {
-                        count++;
-                    }
-                }
-                if(count == 3)
+                // int count = 0;
+                // for(auto x:mp)
+                // {
+                //     if(x.second == 1)
+                //     {
+                //         count++;
+                //     }
+                // }
+                // if(count == 3)
+                //     ++ans;
+                if(mp.size()==3)
                     ++ans;
                 //Slide Window
-                mp[s[i]]--;
+                if(mp[s[i]] > 1)
+                    mp[s[i]]--;
+                else
+                    mp.erase(s[i]);
                 ++i;
                 ++j;
             }
