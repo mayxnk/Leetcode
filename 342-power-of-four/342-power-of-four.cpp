@@ -13,6 +13,6 @@ public:
         2.only one set bit
         3.Set bit at odd position
         */
-        return (n>0) and !(n&(n-1)) and (n & 0x55555555);
+        return (n>0) && (n&(n-1))==0 && (n & 0x55555555)!=0;
     }
 };
