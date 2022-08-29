@@ -24,12 +24,14 @@ public:
         {
             vector<int> temp = fq[i];
             bool flag = true;
-            for(int j = 0;j<=9;++j)
-                if(temp[j] != num[j])
-                    flag = false;
-            if(flag)
-                return true;
+            // for(int j = 0;j<=9;++j)
+                if(temp == num)
+                    return true;;
+            // if(flag)
+            //     return true;
         }
         return false;
+        
+        
     }
 };
