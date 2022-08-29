@@ -2,7 +2,7 @@ class Solution {
 public:
     bool reorderedPowerOf2(int N) {
         //Counting of digits approach
-        map<int,vector<int>> fq;
+        /*map<int,vector<int>> fq;
         int x = pow(10,9);
         for(int i = 1;i<=x;i*=2) //log(10^9)
         {
@@ -31,7 +31,19 @@ public:
             //     return true;
         }
         return false;
-        
+        */
+        //Second Approach
+        string n = to_string(N);
+        sort(n.begin(),n.end());
+        for(int i = 0,pow2 = 1;i<30;i++)
+        {
+            pow2 = pow(2,i);
+            string t = to_string(pow2);
+            sort(t.begin(),t.end());
+            if(t == n)
+                return true;
+        }
+        return false;
         
     }
 };
