@@ -25,18 +25,38 @@ public:
         */
         //Optimal Approach - Time:O(2*n),Space:O(m)
         /**Sliding window technique**/
-        int count[256] = {0};
-        int maxm = 0,left = 0,right = 0;
-        while(right<s.size())
+        // int count[256] = {0};
+        // int maxm = 0,left = 0,right = 0;
+        // while(right<s.size())
+        // {
+        //     count[s[right]]++;//Adding occurences of character
+        //     while(count[s[right]] > 1)
+        //     {
+        //         count[s[left]]--;
+        //         left++;
+        //     }
+        //     maxm = max(maxm,right-left+1);
+        //     ++right;
+        // }
+        // return maxm;
+        unordered_map<int,int> mp;
+        int i = 0,j = 0,maxm = 0;
+        while(j<s.size())
         {
-            count[s[right]]++;//Adding occurences of character
-            while(count[s[right]] > 1)
+            mp[s[j]]++;
+            if(mp.size() == j-i+1)
+                maxm = max(maxm,j-i+1);
+            else
             {
-                count[s[left]]--;
-                left++;
+                while(mp.size()<j-i+1)
+                {
+                    mp[s[i]]--;
+                    if(mp[s[i]] == 0)
+                        mp.erase(s[i]);
+                    ++i;
+                }
             }
-            maxm = max(maxm,right-left+1);
-            ++right;
+            ++j;
         }
         return maxm;
     }
