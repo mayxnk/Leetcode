@@ -20,11 +20,6 @@ public:
             slow = slow->next;
             fast = fast->next->next;
         }
-        // if(slow->next==NULL)
-        // {
-        //     prev->next = NULL;
-        //     return prev;
-        // }
         if(prev!=NULL)
         prev->next = slow->next;
         return head;
