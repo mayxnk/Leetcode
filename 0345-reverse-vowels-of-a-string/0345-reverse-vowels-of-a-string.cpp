@@ -16,7 +16,7 @@ public:
             }
             else if(s.find(str[i])==s.end())
                 i++;
-            else if(s.find(str[j])==s.end())
+            else
                 j--;
         }
         return str;
