@@ -3,7 +3,7 @@ public:
     string reverseVowels(string str) 
     {
         int i = 0,j = str.size()-1;
-        set<char> s;
+        unordered_set<char> s;
         s.insert('a'),s.insert('e'),s.insert('i'),s.insert('o'),s.insert('u');
         s.insert('A'),s.insert('E'),s.insert('I'),s.insert('O'),s.insert('U');
         while(i<j)
