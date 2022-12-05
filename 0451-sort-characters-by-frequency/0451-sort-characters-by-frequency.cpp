@@ -1,16 +1,26 @@
 class Solution {
 public:
     string frequencySort(string s) {
-         unordered_map<char,int> freq;           //for frequency of characters
-        priority_queue<pair<int,char>> maxheap; //maxheap according to frequency of characters
-        for(char c: s)
-            freq[c]++;
-        for(auto it: freq)
-            maxheap.push({it.second,it.first}); //heap will be constructed on the basis of frequency
-        s="";   
-        while(!maxheap.empty()){
-            s+=string(maxheap.top().first,maxheap.top().second); //frequency times the character
-            maxheap.pop();
+        unordered_map<char,int> mp;
+        
+        for(auto x:s)
+            mp[x]++;
+        priority_queue<pair<int,char>> pq;
+        for(auto x:mp)
+        {
+            pair<int,char> temp;
+            temp.first = x.second;
+            temp.second = x.first;
+            pq.push(temp);
+        }
+        s = "";
+        while(pq.size())
+        {
+            int ite = pq.top().first;
+            char ch = pq.top().second;
+            while(ite--)
+                s += ch;
+            pq.pop();
         }
         return s;
     }
