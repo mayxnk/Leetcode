@@ -11,7 +11,7 @@ public:
 	int findKRotation(int arr[], int n) {
 	    // code here
 	    //Brute force
-	    int minm = INT_MAX,index;
+	   /* int minm = INT_MAX,index;
 	    for(int i = 0;i<n;i++)
 	    {
 	        if(arr[i] < minm)
@@ -21,6 +21,42 @@ public:
 	        }
 	    }
 	    return index;
+	    */
+	    //Optimised Approach
+	    int low = 0,high = n-1,minm = INT_MAX,ind;
+	    while(low <= high)
+	    {
+	        int mid = (low+high)/2;
+	        if(arr[low] <= arr[high])
+	        {
+	            if(arr[low] < minm)
+	            {
+	                minm = arr[low];
+	                ind = low;
+	            }
+	            break;
+	        }
+	            if(arr[low] <= arr[mid])
+	            {
+	                if(arr[low] < minm)
+	                {
+	                    minm = arr[low];
+	                    ind = low;
+	                }
+	                low = mid + 1;
+	            }
+	            else
+	            {
+	                if(arr[mid] < minm)
+	                {
+	                    minm = arr[mid];
+	                    ind = mid;
+	                }
+	                high = mid -1;
+	            }
+	    }
+	    return ind;
+	    
 	}
 
 };
